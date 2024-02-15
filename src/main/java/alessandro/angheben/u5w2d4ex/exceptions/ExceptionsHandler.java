@@ -1,10 +1,11 @@
-package epicode.u5d8hw.exceptions;
+package alessandro.angheben.u5w2d4ex.exceptions;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
 import alessandro.angheben.u5w2d4ex.exceptions.BadRequestException;
 import alessandro.angheben.u5w2d4ex.exceptions.ErrorsPayload;
+import alessandro.angheben.u5w2d4ex.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -20,9 +21,9 @@ public class ExceptionsHandler {
     public ErrorsPayload handleBadRequest(BadRequestException e) {
         return new ErrorsPayload(e.getMessage(), LocalDateTime.now());
     }
-    @ExceptionHandler(epicode.u5d8hw.exceptions.NotFoundException.class)
+    @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorsPayload handleNotFound(epicode.u5d8hw.exceptions.NotFoundException e) {
+    public ErrorsPayload handleNotFound(NotFoundException e) {
         return new ErrorsPayload(e.getMessage(), LocalDateTime.now());
     }
 
